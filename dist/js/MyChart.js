@@ -65,7 +65,9 @@ class MyChart {
             dados.filter(dado => dado.sexo == 2).length
         ];
 
-        this.labelData = {};
+        this.labelData = {
+            
+        };
 
         dados.forEach(element => {
             const dataFormatada = new Date(element.data).toISOString().split("T")[0];
