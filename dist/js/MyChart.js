@@ -22,7 +22,12 @@ class MyChart {
 
         this.chartDataElement = document.querySelector("#dataChart");
         this.chartData = this.criarChartData();
-
+       
+        this.refresh = document.querySelector("#refresh");
+        this.refresh.addEventListener('click',() =>{
+            this.carregaDados().then(()=> this.render());
+        }    
+        );
 
 
     }
@@ -30,11 +35,11 @@ class MyChart {
     cadastrarCliente() {
         const nome = document.querySelector("#nome");
         const sexo = document.querySelector('input[name="sexo"]:checked');
-
+        const data = document.querySelector("#data");
         const dados = {
             nome: nome.value,
             sexo: sexo.dataset.value,
-            data: new Date().toISOString()
+            data: data.value
         }
 
         return axios
